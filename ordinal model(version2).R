@@ -25,21 +25,34 @@ tau3 <- plogis(theta[3] - beta * x)
 tau4 <- plogis(theta[4] - beta * x)
 tau5 <- plogis(theta[5] - beta * x)
 
-data.frame(tau1,tau2,tau3,tau4,tau5)
+tau <- data.frame(tau1,tau2,tau3,tau4,tau5)
 
-for(i in 1:reps){
-  Y <- rnorm(n, y, error) 
-  r <- rep(NA, n) 
-  r[Y < tau1] <- 0 
-  r[Y >= tau1 & Y < tau2] <- 1
-  r[Y >= tau2 & Y < tau3] <- 2
-  r[Y >= tau3 & Y < tau4] <- 3
-  r[Y >= tau4 & Y < tau5] <- 4
-  r[Y >= tau5] <- 5
-}
-R <- as.ordered(r)
-model <- polr(R ~ x, Hess = TRUE)
-summary(model)
+
+pi1 <- tau1
+pi2 <- tau2+tau1
+pi3 <- tau3+tau2+tau1
+pi4 <- tau4+tau3+tau2+tau1
+pi5 <- tau5+tau4+tau3+tau2+tau1
+
+pi <- data.frame(pi1,pi2,pi3,pi4,pi5)
+
+
+
+
+
+#for(i in 1:reps){
+# Y <- rnorm(n, y, error) 
+# r <- rep(NA, n) 
+#  r[Y < tau1] <- 0 
+#  r[Y >= tau1 & Y < tau2] <- 1
+#  r[Y >= tau2 & Y < tau3] <- 2
+#  r[Y >= tau3 & Y < tau4] <- 3
+#  r[Y >= tau4 & Y < tau5] <- 4
+#  r[Y >= tau5] <- 5
+#}
+#R <- as.ordered(r)
+#model <- polr(R ~ x, Hess = TRUE)
+#summary(model)
 
 
 
