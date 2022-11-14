@@ -10,13 +10,7 @@ for(j in 1:5){
 }
 
 beta <- 6
-
 x <- runif(n,-1,1)
-for(j in 1:5){
-  y = plogis(theta[j] - beta * x)
-}
-
-
 error <- 1
 
 tau1 <- plogis(theta[1] - beta * x)
