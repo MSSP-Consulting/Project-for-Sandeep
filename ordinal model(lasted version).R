@@ -2,8 +2,6 @@ library(MASS)
 set.seed(1000)
 reps <- 100
 n <- 100
-par.est.oprobit <- matrix(NA, nrow = reps, ncol = 2) 
-taus.oprobit <- matrix(NA, nrow = reps, ncol = 3)
 theta = NULL
 for(j in 1:5){
   theta[j] = j
