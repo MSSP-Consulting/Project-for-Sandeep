@@ -1,7 +1,7 @@
 library(MASS)
 set.seed(1000)
-reps <- 100
-n <- 100
+reps <- 1000
+n <- 1000
 theta = NULL
 for(j in 1:5){
   theta[j] = j
